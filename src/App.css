@@ -1,38 +1,523 @@
-.App {
+/* Global body and font */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #121212;
+  color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Navbar link hover and active */
+.navbar-nav .nav-link {
+  color: #f8f9fa;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active-link {
+  color: #00d4ff;
+  text-shadow: 0 0 8px #00d4ff, 0 0 12px #00d4ff;
+}
+
+/* Hero text styling */
+section#home h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 0 4px #00d4ff, 0 0 12px #00d4ff;
+}
+
+section#home p {
+  font-size: 1.3rem;
+  margin-top: 15px;
+}
+
+/* Hero buttons */
+section#home .btn {
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+section#home .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #00d4ff;
+}
+
+/* Card hover effect */
+.card {
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00d4ff;
+  border: 1px solid #00d4ff;
+}
+
+/* Wrapper for image and caption */
+.carousel-img-wrapper {
+  position: relative;
+  height: 600px; /* fixed height */
+}
+
+.carousel-img-wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Custom caption */
+.carousel-caption-custom {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 15px 20px;
+  border-radius: 8px;
+  z-index: 10;
+  color: #f8f9fa;
+}
+
+.carousel-caption-custom h5 {
+  color: #00d4ff;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 0 0 8px #00d4ff;
+}
+
+.carousel-caption-custom p {
+  color: #f8f9fa;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Responsive height */
+@media (max-width: 768px) {
+  .carousel-img-wrapper {
+    height: 300px;
+  }
+}
+
+.service-icon {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.service-icon i {
+  transition: transform 0.3s, color 0.3s;
+}
+.service-icon i:hover {
+  transform: scale(1.2);
+  color: #00d4ff;
+}
+/* reduce CLS by reserving space for images / iframes */
+.carousel-img-wrapper img,
+.ratio iframe {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* hero parallax fix for CWV */
+#home {
+  background-attachment: scroll; /* mobile-friendly */
+  will-change: transform;
+}
+/* Reviews Cards */
+#reviews .card {
+  border: 1px solid #00d4ff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#reviews .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.6);
+}
+
+/* Avatar/Icon */
+.review-avatar i {
+  transition: transform 0.3s, color 0.3s;
+}
+
+.review-avatar i:hover {
+  transform: scale(1.2);
+  color: #00d4ff;
+}
+
+.google-review-btn {
+  background-color: #00d4ff !important; /* !important ensures override */
+  border-color: #00d4ff !important;
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.google-review-btn:hover {
+  background-color: #00b8e6 !important;
+  color: #fff !important;
+  box-shadow: 0 0 08px #00d4ff, 0 0 12px #00d4ff;
+  transform: translateY(-2px);
+}
+
+/* Reviews blockquotes */
+section#reviews blockquote {
+  background-color: #1a1a1a;
+  padding: 20px;
+  margin: 15px 0;
+  border-left: 5px solid #00d4ff;
+  border-radius: 6px;
+  font-style: italic;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  transition: transform 0.3s;
+}
+
+section#reviews blockquote:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #00d4ff;
+}
+
+/* Contact form inputs */
+form .form-control {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #f8f9fa;
+  transition: all 0.3s;
+}
+
+form .form-control:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 8px #00d4ff;
+  background-color: #121212;
+  color: #f8f9fa;
+}
+
+form .form-control::placeholder {
+  color: #a0a0a0; /* lighter placeholder so visible */
+}
+
+/* Submit button */
+form .btn {
+  transition: all 0.3s;
+}
+
+form .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px #00d4ff;
+}
+
+/* Footer */
+footer {
+  background-color: #000;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* Scroll-to-top button */
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00d4ff;
+}
+
+/* Map styling */
+.map-container iframe {
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.map-container iframe:hover {
+  box-shadow: 0 0 20px #00d4ff;
+}
+
+/* Section headings */
+h2 {
+  color: #00d4ff;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 0 0 8px #00d4ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  section#home h1 {
+    font-size: 2rem;
+  }
+
+  section#home p {
+    font-size: 1.1rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Neon glow for buttons */
+.btn,
+.google-review-btn {
+  transition: all 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover,
+.google-review-btn:hover {
+  box-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff;
+  transform: translateY(-1px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Service card hover */
+.service-card {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  box-shadow: 0 0 8px #00d4ff, 0 0 15px #00d4ff;
+  transform: translateY(-3px);
+}
+
+/* Review card hover */
+.review-card {
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  box-shadow: 0 0 8px #00d4ff, 0 0 15px #00d4ff;
+  transform: translateY(-3px);
+}
+
+/* Social icons hover */
+footer .bi {
+  transition: all 0.3s ease;
+}
+
+footer .bi:hover {
+  color: #00d4ff !important;
+  text-shadow: 0 0 3px #00d4ff, 0 0 6px #00d4ff;
+}
+
+/* Scroll to top button hover */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff;
+  transform: translateY(-1px);
+}
+
+/* Carousel caption neon glow */
+.carousel-caption-custom h5,
+.carousel-caption-custom p {
+  text-shadow: 0 0 3px #00d4ff, 0 0 6px #00d4ff;
+}
+
+.nav-link.active-link .underline,
+.nav-link:hover .underline {
+  width: 100% !important;
+}
+
+/* Neon glow */
+.neon-glow {
+  text-shadow: 0 0 6px #00d4ff, 0 0 12px #00d4ff;
+}
+
+.neon-text {
+  color: #f8f9fa;
+  text-shadow: 0 0 2px #00d4ff;
+}
+
+/* Card glow */
+.card-glow {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 1rem;
+}
+
+.card-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 212, 255, 0.25);
+}
+
+/* Pulse icon on load */
+.pulse-icon {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 5px #00d4ff;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    text-shadow: 0 0 20px #00d4ff;
+  }
+  100% {
+    text-shadow: 0 0 5px #00d4ff;
+  }
+}
+
+/* Hover glow for list items */
+.hover-glow-li:hover {
+  color: #00d4ff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
+}
+
+/* Scroll reveal (lightweight) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   📱 Mobile & Tablet Fixes
+========================= */
+
+/* Small devices (phones < 576px) */
+@media (max-width: 575.98px) {
+  /* Navbar */
+  .navbar-brand img {
+    height: 44px !important;
+    max-height: 10vw;
+  }
+  .nav-link {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  /* Hero Section */
+  #home h1 {
+    font-size: 1.6rem !important;
+    line-height: 1.3;
+  }
+  #home p {
+    font-size: 1rem !important;
+  }
+  #home .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  /* Services */
+  .service-card {
+    margin-bottom: 20px;
+  }
+  .service-icon i {
+    font-size: 1.8rem !important;
+  }
+
+  /* Gallery */
+  .carousel-img-wrapper img {
+    max-height: 220px !important;
+    object-fit: cover;
+  }
+
+  /* Reviews */
+  .review-card {
+    margin-bottom: 20px;
+  }
+
+  /* Contact boxes */
+  #contact .col-xs-12 {
+    margin-bottom: 16px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
+  /* Scroll-to-top */
+  .btn-floating {
+    bottom: 70px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.3rem !important;
+  }
+}
+
+/* Medium devices (tablets < 768px) */
+@media (max-width: 767.98px) {
+  #home h1 {
+    font-size: 1.8rem;
+  }
+  #home p {
+    font-size: 1.1rem;
+  }
+  .service-icon i {
+    font-size: 2rem;
+  }
+  .carousel-img-wrapper img {
+    max-height: 280px;
+  }
+  footer {
+    text-align: center;
+  }
+}
+
+/* =========================
+   🖥️ Large Screens (≥1200px)
+========================= */
+@media (min-width: 1200px) {
+  /* Hero */
+  #home h1 {
+    font-size: 3rem; /* bigger main title */
+    line-height: 1.4;
+  }
+  #home p {
+    font-size: 1.4rem;
+  }
+  #home .btn {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+  }
+
+  /* Navbar */
+  .navbar-brand img {
+    height: 80px !important;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 12px 18px;
+  }
+
+  /* Services */
+  .service-icon i {
+    font-size: 3rem;
+  }
+  .service-card {
+    padding: 24px;
+  }
+
+  /* Gallery */
+  .carousel-img-wrapper img {
+    max-height: 500px;
+  }
+
+  /* Reviews */
+  .review-card {
+    padding: 20px;
+    font-size: 1.05rem;
+  }
+
+  /* Contact Boxes */
+  #contact .card {
+    padding: 24px;
+    font-size: 1.05rem;
+  }
+
+  /* Footer */
+  footer p {
+    font-size: 1rem;
   }
 }
