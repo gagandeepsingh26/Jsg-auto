@@ -1,4 +1,5 @@
 /* Global body and font */
+@import "bootstrap-icons/font/bootstrap-icons.css";
 html {
   scroll-behavior: smooth;
 }

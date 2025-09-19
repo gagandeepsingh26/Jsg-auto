@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Carousel, Button } from "react-bootstrap";
-const [reviews, setReviews] = useState([]);
-const sectionStyle = (color) => ({
-  backgroundColor: color,
-  paddingTop: "60px",
-  paddingBottom: "60px",
-  color: "#f8f9fa",
-});
-const isMobile = window.innerWidth < 768;
-
-useEffect(() => {
-  fetch("/reviews.json")
-    .then((r) => (r.ok ? r.json() : Promise.reject()))
-    .then(setReviews)
-    .catch(() => setReviews([]));
-}, []);
+import { sectionStyle } from "../utils/styles";
 
 export default function Reviews() {
+  const [reviews, setReviews] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    fetch("/reviews.json")
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then(setReviews)
+      .catch(() => setReviews([]));
+  }, []);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section id="reviews" style={sectionStyle("#2c2c2c")}>
       <Container>
