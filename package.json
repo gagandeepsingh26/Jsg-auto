@@ -22,7 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "FAST_REFRESH=true react-scripts start",
     "build": "react-scripts build && workbox generateSW workbox.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -55,6 +55,6 @@
     ]
   },
   "devDependencies": {
-    "workbox-cli": "^7.3.0"
+    "workbox-cli": "^2.1.3"
   }
 }
