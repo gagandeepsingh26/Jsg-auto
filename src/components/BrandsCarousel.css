@@ -1,0 +1,40 @@
+/* Neon-glass brand cards */
+.brand-card {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 212, 255, 0.25);
+}
+
+.brand-logo-wrapper {
+  height: 80px; /* fixed box → logos centre */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+.brand-logo {
+  max-height: 60px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.6));
+  transition: filter 0.2s;
+}
+.brand-card:hover .brand-logo {
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 1));
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 4px rgba(0, 212, 255, 0.8);
+}
