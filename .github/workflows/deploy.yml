@@ -24,7 +24,7 @@ jobs:
 
       - name: Build & bump version
         run: |
-          npm install -D standard-version
+          npm install -D standard-version --legacy-peer-deps
           npm run release
 
       - name: Commit version bump
