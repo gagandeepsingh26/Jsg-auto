@@ -7,7 +7,7 @@ export default function Reviews() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    fetch("/Jsg-auto/reviews.json")
+    fetch(process.env.PUBLIC_URL + "/reviews.json")
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then(setReviews)
       .catch(() => setReviews([]));
