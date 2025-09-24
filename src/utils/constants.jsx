@@ -58,22 +58,56 @@ export const services = [
 export const GalleryList = [
   {
     image:
-      "https://images.unsplash.com/photo-1597007203645-1e3f08b4374c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=1200&q=80",
     caption: "Expert Auto Body Repair",
     sub: "Restoring vehicles to their original condition with precision and care.",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80",
     caption: "Premium Auto Painting",
     sub: "High-quality finishes for a flawless and lasting shine.",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1511391401446-3c0b2f43f1b2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1551524164-687a55dd1126?auto=format&fit=crop&w=1200&q=80",
     caption: "Collision & Frame Straightening",
     sub: "Advanced equipment to ensure perfect alignment and safety.",
   },
+  {
+    image:
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
+    caption: "Ceramic Coating Application",
+    sub: "UV-resistant ceramic coat for long-lasting gloss and protection.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=1200&q=80",
+    caption: "Wheel Alignment & Balancing",
+    sub: "Laser alignment and road-force balancing for vibration-free driving.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1580274455191-1c62238fa333?auto=format&fit=crop&w=1200&q=80",
+    caption: "Engine Bay Detail",
+    sub: "Steam clean and dressing for a factory-fresh engine bay.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1551524164-687a55dd1126?auto=format&fit=crop&w=1200&q=80",
+    caption: "Headlight Restoration",
+    sub: "Remove yellowing and micro-scratches for crystal-clear lenses.",
+  },
+];
+export const brandLogos = [
+  { name: "Toyota", logo: "/logos/toyota.png", icon: "bi-car-front" },
+  { name: "Honda", logo: "/logos/honda.png", icon: "bi-car-front" },
+  { name: "Ford", logo: "/logos/ford.png", icon: "bi-car-front" },
+  { name: "BMW", logo: "/logos/bmw.png", icon: "bi-car-front" },
+  // { name: "Mercedes", logo: "/logos/mercedes.jpg", icon: "bi-car-front" },
+  // { name: "Audi", logo: "/logos/audi.webp", icon: "bi-car-front" },
+  // { name: "Volkswagen", logo: "/logos/volkswagen.webp", icon: "bi-car-front" },
+  // { name: "Nissan", logo: "/logos/nissan.webp", icon: "bi-car-front" },
 ];
 export const heroBg =
   "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80";

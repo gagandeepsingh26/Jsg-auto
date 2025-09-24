@@ -6,6 +6,7 @@ import { SEO, LocalBusinessSchema } from "./seo";
 import {
   Navbar,
   Services,
+  BrandsCarousel,
   Hero,
   About,
   Gallery,
@@ -54,6 +55,7 @@ export default function App() {
     { id: "navbar", Component: Navbar },
     { id: "hero", Component: Hero },
     { id: "services", Component: Services },
+    { id: "brands", Component: BrandsCarousel },
     { id: "about", Component: About },
     { id: "gallery", Component: Gallery },
     { id: "reviews", Component: Reviews },
