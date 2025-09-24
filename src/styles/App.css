@@ -526,3 +526,18 @@ button:hover {
 .swiper-button-prev {
   display: none !important;
 }
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 8px #00d4ff, 0 0 16px rgba(0, 212, 255, 0.6),
+      0 0 20px rgba(0, 212, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px #00d4ff, 0 0 20px rgba(0, 212, 255, 0.6),
+      0 0 26px rgba(0, 212, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px #00d4ff, 0 0 18px rgba(0, 212, 255, 0.6),
+      0 0 24px rgba(0, 212, 255, 0.4);
+  }
+}
