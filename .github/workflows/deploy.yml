@@ -1,46 +1,59 @@
-name: Deploy React App
+name: Release and Deploy React App
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Manual trigger
   push:
     branches:
-      - main
+      - main # Automatic trigger on push to main
 
 jobs:
-  deploy:
+  release-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
+      # 3️⃣ Install dependencies (including devDependencies)
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      # 4️⃣ Configure Git identity
       - name: Configure Git
         run: |
           git config --global user.name "Gagandeep Singh"
           git config --global user.email "sgagandeep07@gmail.com"
 
-      - name: Build & bump version
-        run: |
-          npx standard-version
-          npm run build
+      # 5️⃣ Bump version & generate CHANGELOG.md
+      - name: Bump version & generate changelog
+        run: npx standard-version
 
-      - name: Push changes and tags
+      # 6️⃣ Push version bump and tags to GitHub
+      - name: Push version bump and tags
         run: git push origin main --follow-tags
 
+      # 7️⃣ Build React app
+      - name: Build React app
+        run: npm run build
+
+      # 8️⃣ Deploy to GitHub Pages (root domain)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+          user_name: "Gagandeep Singh"
+          user_email: "sgagandeep07@gmail.com"
+          destination_dir: "" # deploy to root, not a subfolder
 
+      # 9️⃣ Create GitHub Release
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
