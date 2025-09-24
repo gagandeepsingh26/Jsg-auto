@@ -1,10 +1,10 @@
 name: Deploy React App
 
 on:
-  workflow_dispatch: # allows manual trigger
+  workflow_dispatch:
   push:
     branches:
-      - main # optional: trigger on push to main branch
+      - main
 
 jobs:
   deploy:
@@ -22,18 +22,18 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "Gagandeep Singh"
+          git config --global user.email "sgagandeep07@gmail.com"
+
       - name: Build & bump version
         run: |
-          npm install -D standard-version --legacy-peer-deps
-          npm run release
+          npx standard-version
+          npm run build
 
-      - name: Commit version bump
-        run: |
-          git config --local user.name "Gagandeep Singh"
-          git config --local user.email "sgagandeep07@gmail.com"
-          git add package.json package-lock.json
-          git commit -m "chore(release): bump version [skip ci]" || echo "No changes"
-          git push origin main --follow-tags
+      - name: Push changes and tags
+        run: git push origin main --follow-tags
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
