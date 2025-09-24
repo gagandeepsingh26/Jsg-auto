@@ -6,8 +6,8 @@ on:
     branches: [main]
 
 permissions:
-  contents: write # allow pushing commits/tags + creating releases
-  pages: write # only needed if you also use the official Pages deploy action
+  contents: write
+  pages: write
   id-token: write
 
 jobs:
@@ -46,14 +46,18 @@ jobs:
       # 6️⃣ Push version bump and tags
       - name: Push version bump and tags
         run: |
-          git pull --rebase origin main
-          git push origin main --follow-tags
+          git push origin refs/heads/main --follow-tags
 
-      # 7️⃣ Build React app
+      # 7️⃣ Get latest tag created
+      - name: Get latest tag
+        id: get_tag
+        run: echo "LATEST_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+
+      # 8️⃣ Build React app
       - name: Build React app
         run: npm run build
 
-      # 8️⃣ Deploy to GitHub Pages (root)
+      # 9️⃣ Deploy to GitHub Pages (gh-pages branch)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -61,11 +65,11 @@ jobs:
           publish_dir: ./build
           user_name: "Gagandeep Singh"
           user_email: "sgagandeep07@gmail.com"
-          destination_dir: ""
+          publish_branch: gh-pages
 
-      # 9️⃣ Create GitHub Release
+      # 🔟 Create GitHub Release
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ github.ref_name }}
+          tag: ${{ env.LATEST_TAG }}
           generateReleaseNotes: true
