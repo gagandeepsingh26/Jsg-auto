@@ -44,7 +44,7 @@ export default function Footer() {
           <Col md={4} className="text-center text-md-end">
             <p className="mb-0" style={{ color: "#00d4ff" }}>
               <i className="bi bi-gear-fill me-1"></i> Powered by{" "}
-              <strong>PreetHari Tech</strong>
+              <strong>PreetHari Inc.</strong>
             </p>
           </Col>
         </Row>
