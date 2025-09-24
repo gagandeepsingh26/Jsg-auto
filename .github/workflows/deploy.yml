@@ -29,8 +29,8 @@ jobs:
 
       - name: Commit version bump
         run: |
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
+          git config --local user.name "Gagandeep Singh"
+          git config --local user.email "sgagandeep07@gmail.com"
           git add package.json package-lock.json
           git commit -m "chore(release): bump version [skip ci]" || echo "No changes"
           git push origin main --follow-tags
