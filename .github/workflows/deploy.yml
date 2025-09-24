@@ -49,9 +49,11 @@ jobs:
           git push origin refs/heads/main --follow-tags
 
       # 7️⃣ Get latest tag created
-      - name: Get latest tag
+      - name: Get new tag
         id: get_tag
-        run: echo "LATEST_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+        run: |
+          NEW_TAG=$(git describe --tags --abbrev=0)
+          echo "NEW_TAG=$NEW_TAG" >> $GITHUB_ENV
 
       # 8️⃣ Build React app
       - name: Build React app
@@ -66,10 +68,11 @@ jobs:
           user_name: "Gagandeep Singh"
           user_email: "sgagandeep07@gmail.com"
           publish_branch: gh-pages
+          cname: jsgauto.ca
 
       # 🔟 Create GitHub Release
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ env.LATEST_TAG }}
+          tag: ${{ env.NEW_TAG  }}
           generateReleaseNotes: true
