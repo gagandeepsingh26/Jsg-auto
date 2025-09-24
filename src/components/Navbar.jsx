@@ -32,7 +32,7 @@ export default function Navbar() {
           className="navbar-brand d-flex align-items-center p-0"
           onClick={closeMenu}
         >
-          <img src="/images/jsg-logo.png" alt="JSG Auto" height="72" />
+          <img src="/Jsg-auto/images/jsg-logo.png" alt="JSG Auto" height="72" />
         </Link>
 
         {/* Mobile Toggler */}
