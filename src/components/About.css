@@ -1,0 +1,32 @@
+#about {
+  color: #f1f1f1;
+  padding: 60px 0;
+  position: relative;
+  z-index: 1;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.15),
+    rgba(0, 0, 0, 0.85)
+  );
+  z-index: -1;
+}
+
+.card-glow {
+  background: rgba(28, 28, 28, 0.9);
+  border: 1px solid #333;
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.15);
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.25);
+}
